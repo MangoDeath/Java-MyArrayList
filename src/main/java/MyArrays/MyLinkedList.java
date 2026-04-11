@@ -28,6 +28,17 @@ public class MyLinkedList <T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public void add(T item) {
+        MyNode newNode = new MyNode(item);
+
+        if(head==null){
+            head = tail = newNode;
+        }
+        else {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
 
     }
 
@@ -112,6 +123,8 @@ public class MyLinkedList <T extends Comparable<T>> implements MyList<T> {
     if (index ==0){
         addFirst(item);
         return;
+
+
     }
     if(index==size){
         addLast(item);
@@ -185,8 +198,32 @@ public class MyLinkedList <T extends Comparable<T>> implements MyList<T> {
         size--;
     }
 
+    public void show(){
+        MyNode currentNode = head;
+
+        for(int i=0;i<size;i++){
+            System.out.print(currentNode.data);
+            System.out.print(" ");
+            currentNode = currentNode.next;
+        }
+    }
+
     @Override
     public void sort() {
+
+
+        for(int i =0; i<size-1;i++){
+            MyNode currentNode = head;
+            for(int j =0;j<size-1-i;j++){
+                if (((Comparable<T>) currentNode.data).compareTo((T) currentNode.next.data) > 0){
+                    T temp = currentNode.data;
+                    currentNode.data = currentNode.next.data;
+                    currentNode.next.data = temp;
+                }
+                currentNode = currentNode.next;
+
+            }
+        }
 
     }
 

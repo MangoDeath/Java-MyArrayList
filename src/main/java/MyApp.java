@@ -6,22 +6,22 @@ import java.util.LinkedList;
 public class MyApp {
 public static void main(String[] args){
 
-    LinkedList<String> link = new LinkedList<String>();
+    MyLinkedList linked = new MyLinkedList<>();
 
-    MyArrayList<Integer> arr = new MyArrayList<Integer>();
+    linked.add(4);
+    linked.add(6);
+    linked.add(7);
+    linked.add(3);
+    linked.add(8);
 
-    arr.add(10);
-    arr.add(9);
-    arr.add(4);
-    arr.add(5);
-    arr.add(8);
-    arr.add(3);
+    linked.show();
 
-    arr.sort();
+    System.out.println(" ");
+    System.out.println(" ");
 
-    arr.show();
+    linked.sort();
 
-
+    linked.show();
 
 }
 }

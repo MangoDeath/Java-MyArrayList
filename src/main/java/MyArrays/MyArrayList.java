@@ -49,6 +49,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
+
         if(size == capacity) {
             increaseBuffer();}
 
