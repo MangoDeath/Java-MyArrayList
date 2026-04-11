@@ -23,6 +23,18 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
         array = arr2;
     }
 
+
+
+        public void show(){
+        int count = 0;
+        while(count < size && array[count]!=null){
+            System.out.println(array[count]);
+            count++;
+
+        }
+    }
+
+
     @Override
     public void add(T item) {
         if(size == capacity){
@@ -115,6 +127,16 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
     @Override
     public void sort() {
 
+    for(int i =0; i<size-1; i++){
+        for(int j =0; j<size-i-1;j++){
+            if ((int)array[j]>(int)array[j+1]){
+                int temp = (int)array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+
     }
 
     @Override
@@ -167,7 +189,6 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public int size() {
-
         return size;
     }
 

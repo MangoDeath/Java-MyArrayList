@@ -1,7 +1,12 @@
 import MyArrays.MyArrayList;
+import MyArrays.MyLinkedList;
+
+import java.util.LinkedList;
 
 public class MyApp {
 public static void main(String[] args){
+
+    LinkedList<String> link = new LinkedList<String>();
 
     MyArrayList<Integer> arr = new MyArrayList<Integer>();
 
@@ -12,9 +17,11 @@ public static void main(String[] args){
     arr.add(8);
     arr.add(3);
 
+    arr.sort();
 
-    arr.removeLast();
-    System.out.println(arr.indexOf(4));
+    arr.show();
+
+
 
 }
 }
