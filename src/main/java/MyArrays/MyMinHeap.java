@@ -30,7 +30,7 @@ public class MyMinHeap <T extends Comparable<T>>{
         while (index > 0) {
             int parentIndex = (index - 1) / 2;
             if (list.get(index).compareTo(list.get(parentIndex)) < 0) {
-                // child is smaller than parent — swap
+
                 T temp = list.get(index);
                 list.set(index, list.get(parentIndex));
                 list.set(parentIndex, temp);
@@ -55,7 +55,7 @@ public class MyMinHeap <T extends Comparable<T>>{
             }
 
             if (smallest != index) {
-                // swap with smallest child
+
                 T temp = list.get(index);
                 list.set(index, list.get(smallest));
                 list.set(smallest, temp);
