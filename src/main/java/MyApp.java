@@ -1,27 +1,52 @@
 import MyArrays.MyArrayList;
+import MyArrays.MyHashTable;
 import MyArrays.MyLinkedList;
+import MyArrays.MyMinHeap;
 
 import java.util.LinkedList;
+import MyArrays.BST;
 
 public class MyApp {
 public static void main(String[] args){
 
-    MyLinkedList linked = new MyLinkedList<>();
 
-    linked.add(4);
-    linked.add(6);
-    linked.add(7);
-    linked.add(3);
-    linked.add(8);
+    MyHashTable<String,Integer> ht = new MyHashTable<>();
 
-    linked.show();
+    ht.put("apple",1);
+    ht.put("mango",2);
+    ht.put("melon",3);
 
-    System.out.println(" ");
-    System.out.println(" ");
+    System.out.println(ht.get("mango"));
+    System.out.println(ht.getKey(3));
 
-    linked.sort();
+    System.out.println(ht.remove("melon"));
+    System.out.println();
 
-    linked.show();
+    System.out.println(ht.get("melon"));
+
+
+
+    System.out.println("===== BST =====");
+
+    BST<Integer, String> tree = new BST<>();
+    tree.put(5, "five");
+    tree.put(3, "three");
+    tree.put(7, "seven");
+    tree.put(1, "one");
+    tree.put(4, "four");
+    tree.put(6, "six");
+    tree.put(8, "eight");
+
+    System.out.println(tree.get(3));   // three
+    System.out.println(tree.get(7));   // seven
+    System.out.println(tree.size());     // 7
+
+    System.out.println("In-order traversal:");
+    for (var elem : tree) {
+        System.out.println("key is " + elem.getKey() + " and value is " + elem.getValue());
+    }
+
+
 
 }
 }

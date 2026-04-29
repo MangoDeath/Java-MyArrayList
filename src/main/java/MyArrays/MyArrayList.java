@@ -28,7 +28,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
         public void show(){
         int count = 0;
         while(count < size && array[count]!=null){
-            System.out.println(array[count]);
+            System.out.print(" "+ array[count]);
             count++;
 
         }
@@ -53,7 +53,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
         if(size == capacity) {
             increaseBuffer();}
 
-        for(int i =size ;i<index ;i--){
+        for(int i =size ;i>index ;i--){
             array[i+1]= array[i];
         }
         array[index] = item;
@@ -69,7 +69,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T> {
         if(size ==capacity){
             increaseBuffer();}
 
-        for(int i=size; i<0;i--) {
+        for(int i=size; i>0;i--) {
             array[i+1]=array[i];
         }
         array[0]=item;
