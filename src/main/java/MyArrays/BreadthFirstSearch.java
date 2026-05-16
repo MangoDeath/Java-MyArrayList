@@ -22,7 +22,7 @@ public class BreadthFirstSearch<V> extends Search<V> {
 
             Vertex<V> current = queue.poll();
 
-            // go through all neighbors of current vertex
+
             for (Map.Entry<Vertex<V>, Double> entry : current.getAdjacentVertices().entrySet()) {
                 Vertex<V> neighbor = entry.getKey();
 

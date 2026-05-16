@@ -18,7 +18,7 @@ public class WeightedGraph<V> {
     }
 
     public void addEdge(V sourceData, V destData, double weight) {
-        // if vertex doesn't exist yet, create it
+
         if (!map.containsKey(sourceData)) {
             addVertex(sourceData);
         }
@@ -31,7 +31,7 @@ public class WeightedGraph<V> {
 
         source.addAdjacentVertex(dest, weight);
 
-        // if undirected, add the edge both ways
+
         if (undirected) {
             dest.addAdjacentVertex(source, weight);
         }

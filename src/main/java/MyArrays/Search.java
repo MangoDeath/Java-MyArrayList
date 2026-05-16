@@ -24,12 +24,12 @@ public abstract class Search<V> {
             return null;
         }
 
-        // walk backwards from dest to start using edgeTo
+
         MyArrayList<Vertex<V>> path = new MyArrayList<>();
         Vertex<V> current = dest;
 
         while (current != start) {
-            path.add(0, current); // insert at front
+            path.add(0, current);
             current = edgeTo.get(current);
         }
         path.add(0, start);
