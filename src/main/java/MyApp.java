@@ -1,50 +1,59 @@
-import MyArrays.MyArrayList;
-import MyArrays.MyHashTable;
-import MyArrays.MyLinkedList;
-import MyArrays.MyMinHeap;
+import MyArrays.*;
 
 import java.util.LinkedList;
-import MyArrays.BST;
 
 public class MyApp {
 public static void main(String[] args){
 
 
-    MyHashTable<String,Integer> ht = new MyHashTable<>();
+WeightedGraph<Integer> graph = new WeightedGraph<>(true);
+    graph.addEdge(1, 2, 4.0);
+    graph.addEdge(1, 3, 2.0);
+    graph.addEdge(2, 4, 5.0);
+    graph.addEdge(3, 4, 1.0);
+    graph.addEdge(4, 5, 3.0);
 
-    ht.put("apple",1);
-    ht.put("mango",2);
-    ht.put("melon",3);
 
-    System.out.println(ht.get("mango"));
-    System.out.println(ht.getKey(3));
+    Vertex<Integer> start = graph.getVertex(1);
+    Vertex<Integer> end   = graph.getVertex(5);
 
-    System.out.println(ht.remove("melon"));
+    System.out.println("______BSF__________");
+
+    BreadthFirstSearch<Integer> bfs = new BreadthFirstSearch<>(graph, start);
+
+
+    System.out.println("Has path from 1 to 5: " + bfs.hasPathTo(end));
+
+
+    MyArrayList<Vertex<Integer>> bfsPath = bfs.pathTo(end);
+    System.out.print("Path: ");
+    for (int i = 0; i < bfsPath.size(); i++) {
+        System.out.print(bfsPath.get(i).getData());
+        if (i < bfsPath.size() - 1) {
+            System.out.print(" -> ");
+        }
+    }
     System.out.println();
 
-    System.out.println(ht.get("melon"));
 
+    System.out.println("\n===== Dijkstra =====");
 
+    DijkstraSearch<Integer> dijkstra = new DijkstraSearch<>(graph, start);
 
-    System.out.println("===== BST =====");
+    System.out.println("Has path from 1 to 5: " + dijkstra.hasPathTo(end));
+    System.out.println("Shortest distance 1 -> 5: " + dijkstra.distanceTo(end));
 
-    BST<Integer, String> tree = new BST<>();
-    tree.put(5, "five");
-    tree.put(3, "three");
-    tree.put(7, "seven");
-    tree.put(1, "one");
-    tree.put(4, "four");
-    tree.put(6, "six");
-    tree.put(8, "eight");
-
-    System.out.println(tree.get(3));   // three
-    System.out.println(tree.get(7));   // seven
-    System.out.println(tree.size());     // 7
-
-    System.out.println("In-order traversal:");
-    for (var elem : tree) {
-        System.out.println("key is " + elem.getKey() + " and value is " + elem.getValue());
+    MyArrayList<Vertex<Integer>> dijkstraPath = dijkstra.pathTo(end);
+    System.out.print("Path: ");
+    for (int i = 0; i < dijkstraPath.size(); i++) {
+        System.out.print(dijkstraPath.get(i).getData());
+        if (i < dijkstraPath.size() - 1) {
+            System.out.print(" -> ");
+        }
     }
+    System.out.println();
+
+
 
 
 
